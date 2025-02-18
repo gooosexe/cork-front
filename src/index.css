@@ -1,11 +1,21 @@
+/*
+#000000 black
+#ffffff white
+#ac1e39 red
+#e1b913 yellow
+#178048 green
+#214ea0 blue
+#3d99C9 light blue
+*/
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, system-ui, Avenir, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 600;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #000000;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,12 +24,12 @@
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-weight: 600;
+  color: #214ea0;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #3d99c9;
 }
 
 body {
@@ -31,8 +41,9 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 5.2em;
   line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 button {
