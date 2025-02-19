@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { DateTime } from "luxon";
 import './App.css'
 import axios from "axios";
 import { Post } from "./types/post.ts";
@@ -13,20 +14,32 @@ export default function HomePage() {
       .catch(err => console.error(err));
   }, []);
 
-  return (
+  console.log(posts);
+  if (!posts) return <p>Loading...</p>;
+  else if (posts.length === 0) return (
     <>
       <nav>
-        <a href="/post">New Post</a>
+        <a href="/post">new post</a>
       </nav>
       <h1>the corkboard.</h1>
-      {posts.map((post) => (
-        <div key={post.id} style={{ border: "1px solid #ccc", padding: "10px", margin: "10px" }}>
-          <p><strong>{post.username || "anonymous"}</strong></p>
-          <p>{post.content}</p>
-          {post.image_url && <img src={post.image_url} alt="Post Image" width="300" />}
-          <p><small>{post.created_at}q</small></p>
-        </div>
-      ))}
+      <p>no new posts.</p>
+    </>
+  );
+  else return (
+    <>
+      <nav>
+        <a href="/post">new post</a>
+      </nav>
+      <h1>the corkboard.</h1>
+      <div className="posts-container">
+        {posts.map((post) => (
+          <div className="post" key={post.id}>
+            <p className="user">{post.username || "anonymous"} @ {DateTime.fromISO(post.createdAt).toFormat("LLL dd, h:mm a").toLowerCase()}</p>
+            <p className="content">{post.content}</p>
+            {post.filePath && <img src={`http://localhost:8080${post.filePath}`} alt="post" style={{ maxWidth: "100%" }} />}
+          </div>
+        ))}
+      </div>
     </>
   );
 }
