@@ -1,4 +1,4 @@
-# Corkboard
+# corkboard
 Frontend for corkboard. Uses React.
 
 To build, clone the repo and run
